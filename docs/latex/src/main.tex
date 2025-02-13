@@ -1,0 +1,50 @@
+%! Author = bla
+%! Date = 02/12/2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\input{0A_cover} % Title page setup
+\newpage
+
+% Document
+\begin{document}
+    \renewcommand\contentsname{\large Table of Contents}
+    \tableofcontents
+    \setcounter{tocdepth}{2}
+    \newpage
+
+    Figures
+    \renewcommand{\listfigurename}{\large List of Figures}
+    \listoffigures
+    \newpage
+
+    %Tables
+    %\renewcommand{\listtablename}{\large List of Tables}
+    %\listoftables
+    %\newpage
+
+    \pagenumbering{arabic} % same throughout
+
+    \input{sections/00_abstract} % Abstract setup
+    \newpage
+
+    \input{sections/01_introduction}
+    \input{sections/02_related_work}
+    \input{sections/06_conclusion}
+
+    % References
+    \newpage
+
+    \bibliography{main}
+    \bibliographystyle{plain}
+
+%    \newpage
+%    \appendix
+%    \input{sections/AA_appendix}
+
+\end{document}

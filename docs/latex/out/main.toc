@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Introdução}{2}{}%
+\contentsline {section}{\numberline {2}Trabalho relacionado}{2}{}%
+\contentsline {section}{\numberline {3}Modelo quadrático}{4}{}%
+\contentsline {section}{\numberline {4}Implementação}{4}{}%
+\contentsline {section}{\numberline {5}Resultados}{7}{}%
+\contentsline {section}{\numberline {6}Conclusão}{7}{}%
+\contentsline {section}{\numberline {A}dataset "port5.mat"}{9}{}%
+\contentsline {section}{\numberline {B}Implementação optimização quadrática}{9}{}%
+\contentsline {subsection}{\numberline {B.1}Preparação de dados}{9}{}%
+\contentsline {subsection}{\numberline {B.2}225-Problema de Ativos}{9}{}%
+\contentsline {subsection}{\numberline {B.3}225-Problema de Ativos com grupo de restrições}{9}{}%
+\contentsline {subsection}{\numberline {B.4}1000-Problema de Ativos usando dados aleatórios}{9}{}%
+\contentsline {section}{\numberline {C}My inspiration}{9}{}%
