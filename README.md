@@ -1,5 +1,4 @@
-# piaa
-Projeto de PIAA
+# PIAA Projeto
 
 
 Algumas das perguntas que podem ser exploradas:
