@@ -1,0 +1,66 @@
+services:
+  jupyter:
+    build:
+      context: ./container/jupyter
+      dockerfile: Dockerfile
+      args:
+        JUPYTER_IMAGE_VERSION: ${JUPYTER_IMAGE_VERSION}
+    container_name: ${JUPITER_CONTAINER_NAME}
+    ports:
+      - ${JUPYTER_PORT}:8888
+    volumes:
+      - ${NOTEBOOKS_PATH}:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=${JUPYTER_ENABLE_LAB}
+    networks:
+      - host
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: PIAA
+    ports:
+      - "27017:27017"
+    volumes:
+      - /var/www/html/_VOLUMES/mongo:/data/db
+    networks:
+      - host
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: false
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_AUTH_USERNAME: ${MONGO_ROOT_USER}
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGOEXPRESS_LOGIN}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGOEXPRESS_PASSWORD}
+
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    networks:
+      - host
+
+#  python:
+#    image: python:${PYTHON_IMAGE_VERSION}
+#    container_name: ${SCRIPTS_CONTAINER_NAME}
+#    environment:
+#      - DISPLAY=${DISPLAY}  # Pass the DISPLAY variable from your environment (windows wsl stuff - apagar se não for em wsl)
+#    volumes:
+#      - /tmp/.X11-unix:/tmp/.X11-unix  # Mount the X11 socket (windows wsl stuff - apagar se não for em wsl)
+#      - ${SCRIPTS_PATH}:/usr/src/app
+#    working_dir: /usr/src/app
+#    command: tail -f /dev/null
+#    networks:
+#      - host
+
+networks:
+  host:
+    driver: bridge
