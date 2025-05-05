@@ -1,6 +1,5 @@
 math_columns = [f"PV{i}MATH" for i in range(1, 11)]
 
-
 math_subscales = [
     f"PV{i}{suffix}"
     for i in range(1, 11)
