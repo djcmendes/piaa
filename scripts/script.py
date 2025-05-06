@@ -20,7 +20,7 @@ data = pd.read_sas(
     "./cy07_msu_tch_qqq.sas7bdat", format="sas7bdat"
 )
 print("teacher2018 read :", flush=True)
-data.to_csv("teacher2018.csv", index=False)
+data.to_csv("only_teacher2018.csv", index=False)
 print("teacher2018 write :", flush=True)
 
 data = pd.read_sas(

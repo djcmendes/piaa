@@ -61,10 +61,18 @@ def drop_columns(dataframe):
     dataframe = dataframe.drop(columns=math_subscales)
     2018 database does not have the math scales
     """
-    dataframe = dataframe.drop(columns=math_columns)
-    dataframe = dataframe.drop(columns=reading_columns)
-    dataframe = dataframe.drop(columns=global_columns)
-    dataframe = dataframe.drop(columns=science_columns)
-    dataframe = dataframe.drop(columns=reading_subscales)
+
+    for column in math_columns + reading_columns + global_columns + science_columns + reading_subscales:
+        #print("column:",column)
+        if column in dataframe.columns:
+            dataframe = dataframe.drop(columns=column)
+        #else:
+            #print(f"Column '{column}' does not exist in the DataFrame 2.")
+
+    #dataframe = dataframe.drop(columns=math_columns)
+    #dataframe = dataframe.drop(columns=reading_columns)
+    #dataframe = dataframe.drop(columns=global_columns)
+    #dataframe = dataframe.drop(columns=science_columns)
+    #dataframe = dataframe.drop(columns=reading_subscales)
 
     return dataframe

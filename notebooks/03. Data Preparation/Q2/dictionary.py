@@ -1,0 +1,53 @@
+import pandas as pd
+
+column_mapping = {
+    "Avg Math Result": "Avg Math Result",
+    "Avg Science Result": "Avg Science Result",
+    "Avg Reading Result": "Avg Reading Result",
+    "ANXMAT": "Mathematics Anxiety (WLE)",
+    "CNT": "Country",
+    "ST253Q01JA": "How many [digital devices] with screens are there in your [home]?",
+    "ST289Q06JA": "How familiar are you with the following mathematical terms: Pythagorean theorem",
+    "OECD": "OECD country",
+    "ST289Q02JA": "How familiar are you with the following mathematical terms: Area of a circle",
+    "FCFMLRTY": "Familiarity with concepts of finance",
+    "PA195Q01JA": "How many books are there in your home?",
+    "ST289Q05WA": "How familiar are you with the following mathematical terms: Linear equation",
+    "ST331Q02JA": "How much effort would you have invested if your results from the PISA test were counted in your [school marks]?",
+    "FL164Q12HA": "In school lessons in last 12 months, have you heard of or learnt about: Budget",
+    "PA194Q01JA": "How many [digital devices] with screens are there in your home?",
+    "HOMEPOS": "Home possessions (WLE)",
+    "ST300Q02JA": "How often parents/family member: Eat [the main meal] with you.",
+    "ST295Q01JA": "How many days/wk after school: Eat dinner",
+    "IC171Q02JA": "How often use out of school: Smartphone (i.e. mobile phone with Internet access)",
+    "FL170Q04JA": "In last 12 months, how often get money from: Working in a family business",
+    "WB171Q02HA": "Now think of the last time you had a break between classes at school: How did you feel: Lonely",
+    "WB168Q03HA": "How did you feel the last time you attended a [test language lesson] at school: Nervous or tense",
+    "ST260Q02JA": "Have you ever missed school for more than three months in a row: At [ISCED 2]",
+    "ST351Q08JA": "During COVID closures, how often use: Lessons broadcast over television or radio",
+    "ST260Q03JA": "Have you ever missed school for more than three months in a row: At [ISCED 3]",
+    "ST349Q01JA": "During COVID closures, which of the following digital devices did you use most often for your school work?",
+    "WB173Q01HA": "How did you feel the last time you spent time outside your home with your friends: Bored",
+    "CREATOOS": "Creative Activities outside of school (WLE)",
+    "ST347Q02JA": "In last 3 years, did school close because: For another reason (e.g. a natural disaster, strikes or demonstrations, air pollution)",
+    "WB171Q03HA": "Now think of the last time you had a break between classes at school: How did you feel: Nervous or tense",
+    "MISSSC": "Missing school for more than 3 months",
+    "WB173Q03HA": "How did you feel the last time you spent time outside your home with your friends: Nervous or tense",
+    "LANGTEST_PAQ": "Language of Parent Questionnaire",
+    "PA042Q01TA": "What is your annual household income?",
+    "ST059Q02JA": "Total number of [class periods] per week for all subjects, including mathematics",
+    "PA166Q01HA": "How many languages, including the language(s) you speak at home, do you speak well enough to converse with others?",
+    "PA041Q01TA": "In the last twelve months, about how much would you have paid to educational providers for services?",
+    "ICTRES": "ICT Resources (WLE)",
+    "ESCS": "Index of economic, social and cultural status",
+    "ST255Q01JA": "How many books are there in your [home]?",
+    "ST289Q01WA": "How familiar are you with the following mathematical terms: Divisor",
+    "PA003Q16JA": "How often someone in home does? Talk to my child about his/her future education",
+    "PA003Q11JA": "How often someone in home does? Talk to my child about the importance of [completing ISCED 3]",
+    "PA006Q06TA": "When choosing school, how important: Other family members attended the school.",
+}
+
+
+def rename_columns(df: pd.DataFrame, mapping: dict = column_mapping) -> pd.DataFrame:
+    cols_to_rename = {col: mapping[col] for col in df.columns if col in mapping}
+    return df.rename(columns=cols_to_rename)
