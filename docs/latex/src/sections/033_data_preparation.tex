@@ -19,7 +19,7 @@ Next, we introduced the following variables:
     \itemsep0em
     \item \texttt{Avg Math Result}
     \item \texttt{Avg Reading Result}
-    \item \texttt{Avg Sciende Result}
+    \item \texttt{Avg Science Result}
 \end{itemize}
 
 \noindent
@@ -38,7 +38,7 @@ This grouping was based on the average performance of students in each country a
 Using this new cleaned dataset, we created a correlation chart to visualize which features have a strong correlation with the target variable \texttt{Avg Math Result}.
 In Figure \ref{fig:correlation_chart_repeating} and Figure \ref{fig:correlation_chart_not_repeating}, we can see the correlation obtained for the non-repeating and repeating students, respectively.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/Q1_repratingcorrelations.png}
     \caption{Correlation matrix showing the relationship between selected features and the target variable \texttt{Avg Math Result} for repeating students.}
@@ -46,7 +46,7 @@ In Figure \ref{fig:correlation_chart_repeating} and Figure \ref{fig:correlation_
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/Q1_nonrepeatingcorrelations.png}
     \caption{Correlation matrix showing the relationship between selected features and the target variable \texttt{Avg Math Result} for non repeating students.}
@@ -54,5 +54,5 @@ In Figure \ref{fig:correlation_chart_repeating} and Figure \ref{fig:correlation_
 \end{figure}
 
 
-Based on this analysis, we selected a mix of features that were significantly correlated with the target variable in either group. Additionally, we included the grouped \texttt{Country (CNT)} variable to account for geographic effects.
+Based on this analysis, we selected a mix of features that were significantly correlated with the target variable in either group. Additionally, we included the \texttt{Country (CNT)} variable to account for geographic effects.
 The resulting dataset contains 40 variables and 613 744 rows of data, and serves as the foundation for the modelling phase.

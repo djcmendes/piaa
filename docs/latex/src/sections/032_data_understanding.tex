@@ -1,6 +1,7 @@
 \section{Data Understanding}\label{sec:data_understanding}
 
-\subsection{Question 1 – Profile of repeating students in PISA. Which variables contribute to explaining their performance in mathematics? How has it evolved over the different assessment cycles?}
+% \subsection{Question 1 – Profile of repeating students in PISA. Which variables contribute to explaining their performance in mathematics? How has it evolved over the different assessment cycles?}
+\subsection{Question 1}
 
 For this question, we used the Student Questionnaire data from 2022. (*citar fonte*).
 
@@ -8,7 +9,7 @@ This dataset contains information about the students' backgrounds, their attitud
 It has 613744 rows, where each row corresponds to a student. Around 10\% of this students are repeating students, which means they have been retained in the same grade for at least one year.
 In Figure \ref{fig:grade_distribution} we can see the distribution of students by grade repetition status.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/Q1_GradeDistribution.png}
     \caption{Distribution of students by grade repetition status.}
@@ -22,7 +23,7 @@ We then conducted an exploratory analysis of the dataset to identify relevant pa
 For instance, the English school system has a different structure compared to the rest of the world (*citar fonte*), which may affect the results.
 In Figure \ref{fig:country_distribution}, we can see that most of the students in 11th, 12th and 13th grades are from the UK. This difference may lead to a disproportionate representation of students and we should consider them as an exception in the next phases.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.48\textwidth]{figures/Q1_CountryDistri.png}
     \caption{Distribution of students by country (\%).}
