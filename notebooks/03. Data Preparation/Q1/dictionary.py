@@ -1,5 +1,3 @@
-import pandas as pd
-
 column_mapping = {
     "Avg Math Result": "Average Math Result",
     "Avg Science Result": "Average Science Result",
@@ -62,9 +60,10 @@ column_mapping = {
     "IC173Q04JA": "How often use [digital resources] in lessons in: [Computer science], [information technology], [informatics] or similar lessons.",
     "IC177Q07JA": "How much time spent: Create or edit my own digital content (pictures, videos, music, videos, computer programs)",
     "BMMJ1": "Mother’s occupational status (ISEI) based on 4-digit human coded ISCO",
+    "ST355Q02JA": "Confident can do in future: Using a video communication program (e.g. Zoom™, Skype™, Google® Meet™, Microsoft® Teams)",
 }
 
 
-def rename_columns(df: pd.DataFrame, mapping: dict = column_mapping) -> pd.DataFrame:
+def rename_columns(df, mapping = column_mapping):
     cols_to_rename = {col: mapping[col] for col in df.columns if col in mapping}
     return df.rename(columns=cols_to_rename)
