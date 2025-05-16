@@ -25,7 +25,7 @@ class PISADataMap:
         map_df = map_df.iloc[2:] # Drop the first two rows, we only need the values
         map_df = map_df.dropna(subset=[map_df.columns[0]]) # Drop rows with missing values in the first column
 
-        self.map_enum = Enum('MapEnum', {row[0]: row[1] for index, row in map_df.iterrows()}) # Setup enum with key, values of the codebook
+        self.map_enum = Enum('MapEnum', {row.iloc[0]: row.iloc[1] for index, row in map_df.iterrows()})  # Setup enum with key, values of the codebook
 
     def rename_keys(self, df):
         """

@@ -28,7 +28,7 @@ columns_to_keep = [
 'PV1READ', 'PV2READ', 'PV3READ', 'PV4READ', 'PV5READ', 'PV6READ', 'PV7READ', 'PV8READ', 'PV9READ', 'PV10READ',
 'PV1SCIE', 'PV2SCIE', 'PV3SCIE', 'PV4SCIE', 'PV5SCIE', 'PV6SCIE', 'PV7SCIE', 'PV8SCIE', 'PV9SCIE', 'PV10SCIE',
 'PV1MATH', 'PV2MATH', 'PV3MATH', 'PV4MATH', 'PV5MATH', 'PV6MATH', 'PV7MATH', 'PV8MATH', 'PV9MATH', 'PV10MATH',
-'CNT', 'CNTSCHID', 'REPEAT', 'ST001D01T'
+'CNT', 'CNTSCHID', 'REPEAT', 'ST001D01T', 'CNTSTUID'
 ]
 
 # Function to load and merge datasets in chunks
@@ -62,7 +62,6 @@ def get_dataset_in_chunks(chunk_size):
 # Define the chunk size
 chunk_size = 50000 # Adjust the chunk size based on your memory capacity
 
-
 init_target_csv()
 # Perform the merge in chunks
 get_dataset_in_chunks(chunk_size)
@@ -70,6 +69,6 @@ get_dataset_in_chunks(chunk_size)
 print("Merge completed and saved to 'teacher_student2018.csv'.")
 
 df = pd.read_csv('../databases/2018/teacher_student2018.csv')
-df.head(20)
+
 
 
