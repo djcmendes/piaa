@@ -1,9 +1,7 @@
-import pandas as pd
-
 column_mapping = {
-    "Avg Math Result": "Avg Math Result",
-    "Avg Science Result": "Avg Science Result",
-    "Avg Reading Result": "Avg Reading Result",
+    "Avg Math Result": "Average Math Result",
+    "Avg Science Result": "Average Science Result",
+    "Avg Reading Result": "Average Reading Result",
     "ANXMAT": "Mathematics Anxiety (WLE)",
     "CNT": "Country",
     "ST253Q01JA": "How many [digital devices] with screens are there in your [home]?",
@@ -42,12 +40,30 @@ column_mapping = {
     "ESCS": "Index of economic, social and cultural status",
     "ST255Q01JA": "How many books are there in your [home]?",
     "ST289Q01WA": "How familiar are you with the following mathematical terms: Divisor",
+    "ST289Q10WA": "How familiar are you with the following mathematical terms: Probability",
     "PA003Q16JA": "How often someone in home does? Talk to my child about his/her future education",
     "PA003Q11JA": "How often someone in home does? Talk to my child about the importance of [completing ISCED 3]",
     "PA006Q06TA": "When choosing school, how important: Other family members attended the school.",
+    "ST290Q01WA": "How confident in math tasks: Working out from a [train timetable] how long it would take to get from one place to another",
+    "ST290Q02WA": "How confident in math tasks: Calculating how much more expensive a computer would be after adding tax",
+    "ST290Q03WA": "How confident in math tasks: Calculating how many square metres of tiles you need to cover a floor",
+    "ST290Q05WA": "How confident in math tasks: Solving an equation like 6x[sup]2[/sup]+5=29",
+    "ST290Q07WA": "How confident in math tasks: Solving an equation like 2(x+3) = (x+3)(x-3)",
+    "ST290Q09WA": "How confident in math tasks: Solving an equation like 3x+5=17",
+    "ST291Q01JA": "How confident in math tasks: Extracting mathematical information from diagrams, graphs, or simulations",
+    "MATHEFF": "Mathematics self-efficacy: formal and applied mathematics - response options reversed in 2022 (WLE)",
+    "HISEI": "Highest parental occupational status (ISEI) based on 4-digit human coded ISCO",
+    "FAMCON": "Subjective familiarity with mathematics concepts (WLE)",
+    "ST251Q06JA": "How many of these items are there at your [home]: Musical instruments (e.g. guitar, piano, [country-specific example])",
+    "ST250Q02JA": "Which of the following are in your [home]: A computer (laptop, desktop, or tablet) that you can use for school work",
+    "ST256Q03JA": "How many of these books at [home]: Contemporary literature",
+    "IC173Q04JA": "How often use [digital resources] in lessons in: [Computer science], [information technology], [informatics] or similar lessons.",
+    "IC177Q07JA": "How much time spent: Create or edit my own digital content (pictures, videos, music, videos, computer programs)",
+    "BMMJ1": "Mother’s occupational status (ISEI) based on 4-digit human coded ISCO",
+    "ST355Q02JA": "Confident can do in future: Using a video communication program (e.g. Zoom™, Skype™, Google® Meet™, Microsoft® Teams)",
 }
 
 
-def rename_columns(df: pd.DataFrame, mapping: dict = column_mapping) -> pd.DataFrame:
+def rename_columns(df, mapping = column_mapping):
     cols_to_rename = {col: mapping[col] for col in df.columns if col in mapping}
     return df.rename(columns=cols_to_rename)
