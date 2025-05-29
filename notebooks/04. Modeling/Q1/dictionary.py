@@ -64,6 +64,6 @@ column_mapping = {
 }
 
 
-def rename_columns(df, mapping=column_mapping):
+def rename_columns(df, mapping = column_mapping):
     cols_to_rename = {col: mapping[col] for col in df.columns if col in mapping}
     return df.rename(columns=cols_to_rename)
