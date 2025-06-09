@@ -20,7 +20,7 @@ reading_subscales = [
     for suffix in ["RCLI", "RCUN", "RCER", "RTSN", "RTML"]
 ]
 
-def get_math_results(dataframe, math_columns, round = None):
+def get_math_results(dataframe, math_columns):
     math_results = dataframe.copy()
     math_results["Avg Math Result"] = math_results[math_columns].mean(axis=1)
     math_results = math_results.drop(columns=math_columns)
@@ -56,11 +56,15 @@ def get_avg_results(dataframe, columns, type="", round=None):
 
     return avg_results
 
-def drop_columns(dataframe):
+def drop_columns(dataframe, columns_to_keep=None):
     """
     dataframe = dataframe.drop(columns=math_subscales)
     2018 database does not have the math scales
     """
+    if (columns_to_keep==None):
+        columns_to_keep = []
+
+
 
     for column in math_columns + reading_columns + global_columns + science_columns + reading_subscales:
         #print("column:",column)

@@ -39,8 +39,8 @@ def init_target_csv():
     df1 = pd.read_csv('../databases/2018/student2018.csv', nrows=10)
     df2 = pd.read_csv('../databases/2018/only_teacher2018.csv', nrows=10)
     
-    df1 = df1[columns_to_keep]
-    
+    #df1 = df1[columns_to_keep]
+
     df_result = pd.DataFrame(columns=(df1.columns.append(df2.columns)).unique())
     df_result.to_csv("../databases/2018/teacher_student2018.csv", index_label=False)
 
@@ -48,12 +48,17 @@ def init_target_csv():
 def get_dataset_in_chunks(chunk_size):
     chunks = []
     i=0
+    teacher = pd.read_csv('../databases/2018/only_teacher2018.csv')
+    countries = teacher['CNT'].unique()
+    del teacher
+
     for chunk in pd.read_csv('../databases/2018/student2018.csv', chunksize=chunk_size):
         i=i+1
         print("i=",i,flush=True)
-        chunk = chunk[columns_to_keep]
+        #chunk = chunk[columns_to_keep]
+        chunk = chunk[chunk['CNT'].isin(countries)]
         
-        merged_chunk = pd.merge(chunk, pd.read_csv('../databases/2018/only_teacher2018.csv'), on=['CNT', 'CNTSCHID'])
+        merged_chunk = pd.merge(chunk, pd.read_csv('../databases/2018/only_teacher2018.csv'), on=['CNT', 'CNTSCHID'], how="right")
         merged_chunk.to_csv("../databases/2018/teacher_student2018.csv", mode="a", header=False, index=False)
         #print(merged_chunk.head(), flush=True)
         #chunks.append(merged_chunk)
@@ -69,6 +74,8 @@ get_dataset_in_chunks(chunk_size)
 print("Merge completed and saved to 'teacher_student2018.csv'.")
 
 df = pd.read_csv('../databases/2018/teacher_student2018.csv')
+
+df.head()
 
 
 
