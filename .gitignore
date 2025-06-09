@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+#DS_store
+.DS_Store
+
+# Ignore the data directory
+data/
+
+databases/*_database.*
+databases/2015/
+databases/2018/
+databases/2022/

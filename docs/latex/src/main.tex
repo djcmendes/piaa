@@ -1,50 +1,38 @@
-%! Author = bla
-%! Date = 02/12/2024
+\documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
 
-% Preamble
-\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{float}
 
-% Packages
-\usepackage{amsmath}
-\usepackage{graphicx}
-
-\input{0A_cover} % Title page setup
-\newpage
-
-% Document
 \begin{document}
-    \renewcommand\contentsname{\large Table of Contents}
-    \tableofcontents
-    \setcounter{tocdepth}{2}
-    \newpage
 
-    Figures
-    \renewcommand{\listfigurename}{\large List of Figures}
-    \listoffigures
-    \newpage
+\begin{frontmatter}
 
-    %Tables
-    %\renewcommand{\listtablename}{\large List of Tables}
-    %\listoftables
-    %\newpage
+  \input{sections/AA_cover}
 
-    \pagenumbering{arabic} % same throughout
+  \begin{abstract}
+    This article aims to summarize the approach and results of \cite{Stacking}, in which the authors explore employing stacking, boosting, and blending machine learning algorithms to predict student performance in large-scale assessments based on a wide range of predictors and compare their performance.
+  \end{abstract}
 
-    \input{sections/00_abstract} % Abstract setup
-    \newpage
+  \begin{keyword}
+    PISA \sep Machine learning \sep Stacking \sep Boosting \sep Blending \sep Ensemble
+    learning
+  \end{keyword}
 
-    \input{sections/01_introduction}
-    \input{sections/02_related_work}
-    \input{sections/06_conclusion}
+\end{frontmatter}
 
-    % References
-    \newpage
 
-    \bibliography{main}
-    \bibliographystyle{plain}
+% \linenumbers
 
-%    \newpage
-%    \appendix
-%    \input{sections/AA_appendix}
+\input{sections/010_introduction.tex}
+\input{sections/031_business_understanding.tex}
+\input{sections/032_data_understanding.tex}
+\input{sections/033_data_preparation.tex}
+\input{sections/040_modeling.tex}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{main}
 
 \end{document}
+
+\endinput
